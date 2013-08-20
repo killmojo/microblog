@@ -61,6 +61,10 @@ http.createServer(app).listen(app.get('port'), function() {
 });
 
 
+
+//./mongod --dbpath=/Users/yaoyao/Developer/mongodb/mongodb-osx-x86_64-2.4.5/data/db
+
+
 ///supervisor
 // 进入调试状态
 // node --debug-brk test.js
