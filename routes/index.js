@@ -8,12 +8,19 @@ var crypto = require('crypto'),
 
 module.exports = function(app) {
 	app.get('/', function(req, res) {
-		res.render('index', {
-			title: '首页',
-			user: req.session.user,
-			success: req.flash('success').toString(),
-			error: req.flash('error').toString()
-		})
+		Post.get(null, function(err, posts) {
+			if (err) {
+				posts = [];
+			}
+
+			res.render('index', {
+				title: '首页',
+				user: req.session.user,
+				success: req.flash('success').toString(),
+				error: req.flash('error').toString(),
+				posts: posts
+			});
+		});
 	});
 
 	app.get('/reg', checkNotLogin);
@@ -101,10 +108,14 @@ module.exports = function(app) {
 	});
 
 	app.post('/post', checkLogin);
-	app.post('/post', fucntion(req, res) {
+	app.post('/post', function(req, res) {
+		if (!req.body.post || req.body.post == "") {
+			req.flash('error', '内容不能为空');
+			return res.redirect('/');
+		}
 		var currentUser = req.session.user;
 		var post = new Post(currentUser.name, req.body.post);
-		post.save(fucntion(err) {
+		post.save(function(err) {
 			if (err) {
 				req.flash('error', err);
 				return res.redirect('/');
