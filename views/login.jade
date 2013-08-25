@@ -1,0 +1,16 @@
+include header
+	form.form-horizontal(method="post", role="form")
+		fieldset
+			legend 用户登录
+			.form-group
+				label.col-lg-2.control-label(for="username") 用户名
+				div
+					input#username.input_xlarge(type="text", name="username")	
+			.form-group
+				label.col-lg-2.control-label(for="username") 口令
+				div
+					input#password.input_xlarge(type="password", name="password")	
+			.form-group
+				button.col-lg-offset-2.btn.btn-primary 登录
+			
+include footer
