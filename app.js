@@ -13,6 +13,7 @@ var settings = require('./settings');
 var flash = require('connect-flash');
 
 var app = express();
+var partials = require('express-partials');
 
 // all environments
 app.configure(function() {
@@ -31,6 +32,8 @@ app.configure(function() {
 			db: settings.db
 		})
 	}));
+	//express-partials
+	app.use(partials());
 
 	app.use(app.router);
 	//app.use(express.router(routes));
