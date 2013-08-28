@@ -1,7 +1,4 @@
 
-<h2>dfsd</h2>
-<!-- 
-
 <% if (!user) { %>
 <div class="hero-unit">
 	<h1>欢迎来到 Microblog</h1>
@@ -12,9 +9,9 @@
 	</p>
 </div>
 <% } else { %>
-	<%- include say %>
+	<!-- <%- include say %> -->
+    <%- partial("say") %>
 <% } %>
 
-
-<%- include posts %>
- -->
+<!-- <%- include posts %> -->
+<%- partial("posts", {posts: posts}) %>
