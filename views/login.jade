@@ -1,4 +1,5 @@
-include header
+extends layout
+block content 
 	form.form-horizontal(method="post", role="form")
 		fieldset
 			legend 用户登录
@@ -12,5 +13,3 @@ include header
 					input#password.input_xlarge(type="password", name="password")	
 			.form-group
 				button.col-lg-offset-2.btn.btn-primary 登录
-			
-include footer
